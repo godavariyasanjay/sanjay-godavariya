@@ -1,20 +1,48 @@
 <header class="custom-header">
-<div class="page-width">
-<div class="header-container">
- <a href="{{ routes.root_url }}">
-  <h1 class="brand-logo">
- {{ section.settings.logo_text }}
-  </h1>
-</a>
-  <div class="head-message">
-    {{ section.settings.message }}
+  <div class="page-width">
+    <div class="header-container">
+      <button class="mobile-toggle" id="mobileMenuToggle">
+        <span></span>
+         <span></span>
+        <span></span>
+      </button>
+      <a href="{{ routes.root_url }}" class="logo-link">
+        <h1 class="brand-logo">
+          {{ section.settings.logo_text }}
+        </h1>
+      </a>
+{%- if section.settings.message != blank -%}
+      <div class="desktop-message">
+        {{ section.settings.message }}
+      </div>
+{%- endif -%}
+{%- if section.settings.button_link != blank -%}
+      <div class="desktop-button">
+        <a href="{{ section.settings.button_link }}" class="btn head-btn">
+          {{ section.settings.button_text }}
+          <span class="svg-wrapper">
+            {{ 'icon-arrow.svg' | inline_asset_content }}
+          </span>
+        </a>
+      </div>
+{%- endif -%}
+    </div>
+    <div class="mobile-dropdown" id="mobileDropdown">
+{%- if section.settings.message != blank -%}
+      <div class="mobile-message">
+        {{ section.settings.message }}
+      </div>
+{%- endif -%}
+{%- if section.settings.button_link != blank -%}
+      <a href="{{ section.settings.button_link }}" class="btn head-btn">
+        {{ section.settings.button_text }}
+        <span class="svg-wrapper">
+          {{ 'icon-arrow.svg' | inline_asset_content }}
+        </span>
+      </a>
+{%- endif -%}
+    </div>
   </div>
-
-  <div class="button-wrap">
-    <a href="{{ section.settings.button_link }}" class="btn head-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span> </a>
-  </div>
-</div>
-</div>
 </header>
 {% schema %}
 {

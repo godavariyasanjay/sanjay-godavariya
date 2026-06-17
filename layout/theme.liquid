@@ -307,12 +307,12 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-    
+    {% comment %}
     {% sections 'header-group' %}
-    
-{% comment %} 
+    {% endcomment %}
+ 
     {% section 'tisso-header' %}
-{% endcomment %}
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
@@ -367,6 +367,17 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
+
+      //Custom Mobile toggle js
+      document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('mobileMenuToggle');
+      const dropdown = document.getElementById('mobileDropdown');
+        toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        dropdown.classList.toggle('active');
+      });
+    });
+    //Custom Mobile toggle js End
     </script>
 
     {%- if settings.predictive_search_enabled -%}
@@ -376,5 +387,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    
+
   </body>
 </html>

@@ -1,20 +1,28 @@
-<section class="hero" style="background-image:url('{{ section.settings.bg_image | image_url: width: 2000 }}');">
-
+<section class="hero" style="--desktop-bg:url('{{ section.settings.bg_image | image_url: width: 2000 }}');">
   <div class="hero-content">
-
-    <h1>{{ section.settings.heading }} </h1>
-
-    <p>{{ section.settings.description }}</p>
-
-    <a href="{{ section.settings.button_link }}" class="btn hero-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
-
-  </div>
-
-</section>
-
+    {%- if section.settings.heading != blank -%}
+        <h1>{{ section.settings.heading }} </h1>
+    {%- endif -%}
+    {%- if section.settings.desktop_description != blank or section.settings.mobile_description != blank -%}
+    <p class="desktop-desc">{{ section.settings.desktop_description }}</p>
+    <p class="mobile-desc">{{ section.settings.mobile_description }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_link != blank -%}
+    <a href="{{section.settings.button_link }}" class="btn hero-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
+   {%- endif -%}
+    </div>
+    {%- if section.settings.mobile_image != blank -%}
+        <div class="mobile-background">
+            <img src="{{ section.settings.mobile_image | image_url: width: 900 }}" loading="lazy">
+        </div>
+ {%- endif -%}
+    </section>
+{%- if section.settings.announcement_desktop != blank or section.settings.announcement_mobile -%}
 <div class="hero-announcement">
-  {{ section.settings.bottom_text }}
+  <div class="desktop-announcement">{{ section.settings.announcement_desktop }}</div>
+  <div class="mobile-announcement">{{ section.settings.announcement_mobile }}</div>
 </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -27,19 +35,25 @@
     },
     {
     "type": "image_picker",
-    "id": "mobile_bg_image",
+    "id": "mobile_image",
     "label": "Mobile Background"
-},
+    },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "The Gift Guide"
     },
+     {
+      "type": "textarea",
+      "id": "desktop_description",
+      "label": "Desktop Description",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
+    },
     {
       "type": "textarea",
-      "id": "description",
-      "label": "Description",
+      "id": "mobile_description",
+      "label": "Mobile Description",
       "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
     },
     {
@@ -55,9 +69,15 @@
     },
     {
       "type": "text",
-      "id": "bottom_text",
-      "label": "Bottom Announcement",
+      "id": "announcement_desktop",
+      "label": "Desktop Announcement",
       "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    },
+     {
+      "type": "text",
+      "id": "announcement_mobile",
+      "label": "Mobile Announcement",
+      "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
     }
   ],
   "presets": [

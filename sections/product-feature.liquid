@@ -3,7 +3,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -12,43 +11,29 @@
   }
 {%- endstyle -%}
 
-
-<div class="page-width section-{{ section.id }}-padding">
-
+<div class="page-width feature-product section-{{ section.id }}-padding">
 {%- if section.settings.title != blank -%}
         <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
         </h2>
       {%- endif -%}
-
-  <div class="lookbook-grid">
-
+  <div class="feature-product-grid">
     {% for block in section.blocks %}
       {% assign product = block.settings.product %}
-
-      <div class="lookbook-item">
-
+      <div class="products-item">
         <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.title }}" loading="lazy">
-
-        <button  class="lookbook-hotspot"  data-product-handle="{{ product.handle }}"  data-product-description="{{ product.description | strip_html | escape }}"  style="top:{{ block.settings.hotspot_top }}%; left:{{ block.settings.hotspot_left }}%; ">
+        <button  class="products-hotspot"  data-product-handle="{{ product.handle }}"  data-product-description="{{ product.description | strip_html | escape }}"  style="top:{{ block.settings.hotspot_top }}%; left:{{ block.settings.hotspot_left }}%; ">
   +
 </button>
-
       </div>
-
     {% endfor %}
-
   </div>
-
 </div>
-
 {% render 'quick-view-modal' %}
-
-<script src="{{ 'product-lookbook.js' | asset_url }}" defer></script>
-
+<script src="{{ 'product-feature.js' | asset_url }}" defer></script>
 {% schema %}
 {
-  "name": "Product Lookbook",
+  "name": "Product Feature",
   "settings": [
     {
       "type": "header",
@@ -114,7 +99,7 @@
   ],
   "presets":[
     {
-      "name":"Product Lookbook"
+      "name":"Product Feature"
     }
   ]
 }

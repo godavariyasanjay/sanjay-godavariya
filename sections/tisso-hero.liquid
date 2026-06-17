@@ -8,8 +8,10 @@
     <p class="mobile-desc">{{ section.settings.mobile_description }}</p>
     {%- endif -%}
     {%- if section.settings.button_link != blank -%}
-    <a href="{{section.settings.button_link }}" class="btn hero-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
-   {%- endif -%}
+    <div class="btn-wrap">
+        <a href="{{section.settings.button_link }}" class="btn hero-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span></a>
+   </div>
+{%- endif -%}
     </div>
     {%- if section.settings.mobile_image != blank -%}
         <div class="mobile-background">

@@ -1,0 +1,378 @@
+/* .custom-header{
+ background:#F5F5F5;
+}
+.custom-header a{
+    text-decoration: none;
+}
+.header-container{
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand-logo{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+.head-message{
+  flex:1;
+  text-align:center;
+  font-size:16px;
+  color: #000;
+}
+.btn{
+ background:#000;
+  color:#fff;
+  padding:10px 35px;
+  font-weight:400;
+  font-size: 16px;
+  line-height: 21px;
+  text-transform: uppercase;  
+  display:inline-flex;
+  align-items:center;
+  gap:15px;
+  text-decoration: none;
+}
+.btn.head-btn{
+  background:#FFF544;
+  color:#000;
+} */
+.tisso-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:64px;
+}
+
+.tisso-logo{
+  flex:0 0 220px;
+}
+
+.tisso-message{
+  flex:1;
+  text-align:center;
+  font-size:16px;
+}
+
+.tisso-button{
+  background:#f2e533;
+  color:#000;
+  text-decoration:none;
+  padding:14px 36px;
+  display:inline-flex;
+  align-items:center;
+  gap:15px;
+  font-weight:600;
+}
+
+.tisso-button:hover{
+  color:#000;
+}
+
+@media screen and (max-width:749px){
+
+  .tisso-header{
+    flex-direction:column;
+    gap:14px;
+    padding:16px;
+    text-align:center;
+  }
+
+  .tisso-logo{
+    flex:none;
+  }
+
+  .tisso-message{
+    width:100%;
+    font-size:13px;
+  }
+
+  .tisso-button{
+    width:auto;
+  }
+
+}
+/****Hero section CSS Start ***/
+.hero{
+  min-height:750px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.hero-content{
+  position:absolute;
+ left: 70px;
+bottom: 50px;
+   max-width: 520px;
+}
+.hero-content h1{
+ font-size: 70px;
+ font-weight: 500;
+ margin-bottom: 30px;
+}
+.hero-content p{
+  font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 35px;
+    color: #000;
+}
+.hero-btn{
+  background:#000;
+  color:#fff;
+  height: 50px;
+}
+.hero-announcement{
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F5F5F5;
+  font-size:16px;
+  text-transform:uppercase;
+  color: #000;
+}
+/****Feature Section CSS Start ***/
+.lookbook-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.lookbook-item{
+   position:relative;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+.lookbook-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.lookbook-hotspot{
+  position:absolute;
+  transform:translate(-50%, -50%);
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#fff;
+  border:none;
+  cursor:pointer;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.quick-view-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.quick-view-modal.active {
+  display: flex;
+}
+.quick-view-content{
+  width:380px;
+  background:#fff;
+  padding:18px;
+  position:relative;
+}
+.qv-layout{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom: 8px;
+}
+.qv-left{
+  width:110px;
+  flex-shrink:0;
+}
+.qv-image{
+   width:110px;
+  height:140px;
+  object-fit:cover;
+  display:block;
+}
+.qv-right{
+  flex:1;
+}
+.qv-title{
+  font-size:16px;
+  font-weight:300;
+  margin:0 0 12px;
+}
+.qv-price{
+  font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: #000;
+}
+.qv-description{
+  font-size:14px;
+  line-height:1.2;
+  font-weight: 300;
+}
+
+.qv-option-group{
+  margin-bottom:10px;
+}
+.qv-option-label{
+ margin-bottom: 4px;
+font-size: 14px;
+}
+
+.qv-color-buttons{
+  display:flex;
+}
+
+.qv-color-btn{
+  flex:1;
+}
+
+.qv-color-btn input{
+  display:none;
+}
+
+.qv-color-btn span{
+ display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: #fff;
+    cursor: pointer;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 18px;
+    color: #000;
+    line-height: 26px
+}
+
+.qv-color-btn input:checked + span{
+  background: #000;
+  color: #fff;
+}
+.color-value{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:#fff;
+}
+.color-value::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+}
+.color-value[data-color="black"]::before{
+  background:#000;
+}
+.color-value[data-color="white"]::before{
+  background:#fff;
+}
+.color-value[data-color="red"]::before{
+  background:#B20F36;
+}
+.color-value[data-color="grey"]::before{
+  background:#AFAFB7;
+}
+.color-value[data-color="blue"]::before{
+  background:#0D499F;
+}
+.qv-size-select{
+  width:100%;
+  height:45px;
+  padding:0 60px 0 15px;
+  border:1px solid rgba(0, 0, 0, 0.5);
+  background-color:#fff;
+  font-size:16px;
+  font-weight:400;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  border-radius:0;
+  outline:none;
+  position:relative;
+}
+.qv-size-select option{
+  font-size:16px;
+  font-weight:400;
+}
+.qv-select-wrapper{
+  position:relative;
+}
+
+.qv-select-wrapper::before{
+  content:'';
+  position:absolute;
+  bottom:0;
+  right:55px;
+  width:1px;
+  height:100%;
+  background:rgba(0, 0, 0, 0.5);
+  z-index:1;
+  height: 45px;
+}
+*:focus-visible{
+    box-shadow: none;
+    outline: none;
+}
+.qv-select-wrapper::after{
+  content:'';
+  width:10px;
+  height:10px;
+  border-right:2px solid #000;
+  border-bottom:2px solid #000;
+  transform:translateY(-60%) rotate(45deg);
+  position:absolute;
+  right:22px;
+  bottom: 20%;
+  pointer-events:none;
+}
+.qv-variant {
+    margin-bottom: 45px;
+}
+.qv-add{
+  width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 10px;
+    line-height: 30px;
+}
+.btn-arrow{
+  font-size: 26px;
+    font-weight: 200;
+    transform: scaleX(1.4);
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: -5px;
+}
+.modal-close{
+  position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: 300;
+}
+@media screen and (max-width: 749px){
+  .lookbook-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}

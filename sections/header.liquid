@@ -136,6 +136,52 @@
       assign localization_forms = true
     endif
   -%}
+  {% if section.settings.header_layout == 'tisso' %}
+
+<header class="tisso-header page-width">
+
+  <div class="tisso-logo">
+
+    <a href="{{ routes.root_url }}">
+
+      {% if settings.logo != blank %}
+
+        {{ settings.logo
+          | image_url: width: 600
+          | image_tag:
+          class: 'header__heading-logo'
+        }}
+
+      {% else %}
+
+        {{ shop.name }}
+
+      {% endif %}
+
+    </a>
+
+  </div>
+
+  <div class="tisso-message">
+    {{ section.settings.promo_message }}
+  </div>
+
+  <div class="tisso-button-wrap">
+
+    <a
+      href="{{ section.settings.promo_button_link }}"
+      class="tisso-button"
+    >
+      {{ section.settings.promo_button_text }}
+      →
+    </a>
+
+  </div>
+
+</header>
+
+{% else %}
+
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     {%- liquid
       if section.settings.menu != blank
@@ -491,6 +537,10 @@
         {
           "value": "middle-center",
           "label": "t:sections.header.settings.logo_position.options__4.label"
+        },
+        {
+          "value": "tisso",
+          "label": "Tisso Promo Header"
         }
       ],
       "default": "middle-left",
@@ -568,6 +618,23 @@
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "text",
+      "id": "promo_message",
+      "label": "Promo Message",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "text",
+      "id": "promo_button_text",
+      "label": "Button Text",
+      "default": "CHOOSE GIFT"
+    },
+    {
+      "type": "url",
+      "id": "promo_button_link",
+      "label": "Button Link"
     },
     {
       "type": "header",

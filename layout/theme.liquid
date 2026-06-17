@@ -14,6 +14,7 @@
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
 
     <title>
       {{ page_title }}
@@ -306,9 +307,12 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-
+    
     {% sections 'header-group' %}
-
+    
+{% comment %} 
+    {% section 'tisso-header' %}
+{% endcomment %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>

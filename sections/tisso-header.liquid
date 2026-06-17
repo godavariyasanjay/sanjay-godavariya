@@ -1,0 +1,53 @@
+<header class="custom-header">
+<div class="page-width">
+<div class="header-container">
+ <a href="{{ routes.root_url }}">
+  <h1 class="brand-logo">
+ {{ section.settings.logo_text }}
+  </h1>
+</a>
+  <div class="head-message">
+    {{ section.settings.message }}
+  </div>
+
+  <div class="button-wrap">
+    <a href="{{ section.settings.button_link }}" class="btn head-btn">{{ section.settings.button_text }} <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span> </a>
+  </div>
+</div>
+</div>
+</header>
+{% schema %}
+{
+  "name":"Tisso Header",
+  "settings":[
+    {
+      "type":"text",
+      "id":"logo_text",
+      "label":"Logo Text",
+      "default":"TISSO VISION"
+    },
+    {
+      "type":"text",
+      "id":"message",
+      "label":"Message",
+      "default":"Find the ideal gift for your loved ones."
+    },
+    {
+      "type":"text",
+      "id":"button_text",
+      "label":"Button Text",
+      "default":"CHOOSE GIFT"
+    },
+    {
+      "type":"url",
+      "id":"button_link",
+      "label":"Button Link"
+    }
+  ],
+  "presets":[
+    {
+      "name":"Tisso Header"
+    }
+  ]
+}
+{% endschema %}
